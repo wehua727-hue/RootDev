@@ -1,0 +1,58 @@
+exports.handler = async (event, context) => {
+  return {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-cache",
+    },
+    body: `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: #00ff99;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        .redirect-message {
+            color: #00ff99;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p class="redirect-message">If you are not redirected automatically, please visit the homepage.</p>
+    <p>This page should redirect to the main portfolio.</p>
+    
+    <script>
+        // Try to redirect to the main page
+        window.location.href = '/';
+    </script>
+</body>
+</html>
+    `,
+  };
+};
