@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: portfolio
-    env: static
-    buildCommand: npm run build
-    staticPublishPath: ./dist
-    envVars:
-      - key: NODE_VERSION
-        value: 22.16.0
