@@ -30,6 +30,9 @@ function App() {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [submitStatus, setSubmitStatus] = useState(null)
 
+	// Mobile nav toggle
+	const [menuOpen, setMenuOpen] = useState(false)
+
 	// Telegram bot configuration
 	const BOT_TOKEN = '8107816169:AAGDjteEUl3cK0nJzf8xCDH4jt3MNXRNbbQ'
 	const CHAT_ID = '5834939103'
@@ -112,30 +115,64 @@ ${formData.message}
 			<header className='header'>
 				<div className='container'>
 					<h1 className='logo'>Javohir Fozilov</h1>
-					<nav className='nav'>
+					<button
+						className='menu-toggle'
+						aria-label='Toggle menu'
+						onClick={() => setMenuOpen(prev => !prev)}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<nav className={`nav ${menuOpen ? 'open' : ''}`}>
 						<ul>
 							<li>
-								<a onClick={() => scrollToSection('home')}>
+								<a
+									onClick={() => {
+										scrollToSection('home')
+										setMenuOpen(false)
+									}}
+								>
 									<FaHome /> Bosh sahifa
 								</a>
 							</li>
 							<li>
-								<a onClick={() => scrollToSection('about')}>
+								<a
+									onClick={() => {
+										scrollToSection('about')
+										setMenuOpen(false)
+									}}
+								>
 									<FaUser /> Men haqimda
 								</a>
 							</li>
 							<li>
-								<a onClick={() => scrollToSection('skills')}>
+								<a
+									onClick={() => {
+										scrollToSection('skills')
+										setMenuOpen(false)
+									}}
+								>
 									<FaCode /> Ko'nikmalar
 								</a>
 							</li>
 							<li>
-								<a onClick={() => scrollToSection('projects')}>
+								<a
+									onClick={() => {
+										scrollToSection('projects')
+										setMenuOpen(false)
+									}}
+								>
 									<FaFolder /> Loyihalar
 								</a>
 							</li>
 							<li>
-								<a onClick={() => scrollToSection('contact')}>
+								<a
+									onClick={() => {
+										scrollToSection('contact')
+										setMenuOpen(false)
+									}}
+								>
 									<FaEnvelope /> Aloqa
 								</a>
 							</li>
